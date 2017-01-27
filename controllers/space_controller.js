@@ -1,3 +1,5 @@
+"use strict";
+
 // Import MySQL connection.
 var db = require("../models");
 var express = require("express");
@@ -18,37 +20,30 @@ router.get("/spaceportfolio", function(req, res) {
         });
 });
 
-
 //post to database the pics you want to save
-//redirect ot the"Saving iamges pages"
-
-router.post("/burgers/create", function(req, res) {
-    console.log("burgers_controller.js burger_name is: " + req.body.burger_name);
-    db.Burger.create({
-        burger_name: req.body.burger_name
-    })
-
-    .then(function(dbBurger) {
-        res.redirect("/burgers");
-    });
+//TODO: double check req.body.userID, req.body.user_name, req.body.photoID against db
+router.post("/space/save/:user_name", function(req, res) {
+    db.Space.create({
+            user_name: req.params.user_name,
+            photoID: req.body.photoID
+        })
+        .then(function(dbSpace) {
+            res.redirect("/spaceportfolio");
+        });
 });
 
-//destroy images you don't want
-//redirect to saveing images page
-router.put("/burgers/update/:id", function(req, res) {
-    db.Burger.update({
-        devoured: true,
-    }, {
-        where: {
-            id: req.params.id
-        }
-    })
-    res.redirect("/burgers");
+//delete images you don't want
+//TODO: double check what parts of record to delete against db
+router.delete("/space/delete/:user_name", function(req, res) {
+    db.Space.destroy({
+            where: {
+                photoID: req.body.photoID
+            }
+        })
+        .then(function(dbSpace) {
+            res.redirect("/spaceportfolio");
+        });
 });
-
-//what do you do with your portfolio? - TBD
-
-
 
 // Export routes for server.js to use.
 module.exports = router;

@@ -1,0 +1,2 @@
+-mobile compatible
+-download all images as zip file once portfolio is created
