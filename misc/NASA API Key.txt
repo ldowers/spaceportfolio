@@ -1,0 +1,8 @@
+Account Email: ldowers@cfl.rr.com
+Account ID: 2a1e1f2c-1713-44f4-a1d9-8584a4c7ad88
+
+API Key:
+JPXW4jwdZEo1fq1gtEdPYRW9qc6coM21DMI7ODcD
+
+Example:
+https://api.nasa.gov/planetary/apod?api_key=JPXW4jwdZEo1fq1gtEdPYRW9qc6coM21DMI7ODcD

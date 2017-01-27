@@ -26,12 +26,51 @@ app.set("view engine", "handlebars");
 // Import routes and give the server access to them.
 var routes = require("./controllers/space_controller.js");
 
-
 app.use("/", routes);
 
-// Starting our express app
+// =============================================================
+// APOD Client Configuration
+// =============================================================
+var apod = require('nasa-apod');
+
+var client = new apod.Client({
+    apiKey: 'JPXW4jwdZEo1fq1gtEdPYRW9qc6coM21DMI7ODcD',
+    conceptTags: true
+});
+
+// Syncing our sequelize models, loading our photos table, and then starting our express app
 db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, function() {
-        console.log("App listening on PORT " + PORT);
-    });
+    var d = new Date();
+    var i = 1;
+
+    var addRecord = function() {
+        client(d).then(function(body) {
+            db.Photo.create({
+                    copyright: body.copyright,
+                    date: body.date,
+                    explanation: body.explanation,
+                    hdurl: body.hdurl,
+                    media_type: body.media_type,
+                    service_version: body.service_version,
+                    title: body.title,
+                    url: body.url
+                })
+                .then(function() {
+                    console.log("Record # " + i + " added to database");
+                    i++;
+                    if (i <= 10) {
+                        d.setDate(d.getDate() - 1);
+                        addRecord();
+                    } else {
+                        console.log("Done");
+
+                        app.listen(PORT, function() {
+                            console.log("App listening on PORT " + PORT);
+                        });
+                        return;
+                    }
+                });
+        });
+    };
+    addRecord();
 });
