@@ -1,0 +1,28 @@
+/*navbar*/
+
+nav {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+/*navbar*/
+
+/*login form overlay*/
+#form-overlay {
+	background-color: white;
+	overflow: hidden!important;
+	height: 0vh;
+	width: 100vw;
+	position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 999;
+    transition-timing-function: ease-in-out;
+    transition-duration: .5s;
+}
+
+.top-margin {
+	margin-top: 25%;
+}
+
+/*login form overlay*/
