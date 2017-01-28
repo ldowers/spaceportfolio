@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Image = sequelize.define("Image", {
+  var Portfolio = sequelize.define("Portfolio", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     {   
       classMethods: {
         associate: function(models) {
-          Image.belongsTo(models.User,
+          Portfolio.belongsTo(models.User,
             {
               onDelete: "cascade",
               foreignKey: {
@@ -32,5 +32,5 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     });
-  return Image;
+  return Portfolio;
 };
