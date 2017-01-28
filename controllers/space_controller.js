@@ -9,8 +9,17 @@ var passport = require("../config/passport");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-//if a user tries to go to the main page, check if they're already logged in
+
 router.get("/", function(req, res) {
+    res.redirect("/spaceportfolio");
+});
+
+router.get("/spaceportfolio", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../index.html"));
+});
+
+//if a user tries to go to the main page, check if they're already logged in
+router.get("/spaceportfolio/create", function(req, res) {
     // If the user is already logged in send them to the create a portfolio page
     if (req.user) {
         res.redirect("spaceportfolio/create");
@@ -23,7 +32,7 @@ router.get("/", function(req, res) {
 router.get("spaceportfolio/login", function(req, res) {
     // If the user is already logged in send them to the create a portfolio page
     if (req.user) {
-        res.redirect("/members");
+        res.redirect("/spaceportfolio/create");
     }
     //else send them to the login page
     res.sendFile(path.join(__dirname + "/../public/login.html"));
@@ -87,11 +96,12 @@ router.get("spaceportfolio/logout", function(req, res) {
 
 
 //search
-//how to do search "contains" string?
 router.get("/spaceportfolio/search", function(req, res) {
-    db.Image.findAll({
+    db.Photo.findAll({
             where: {
-                explanation: req.body
+                explanation: {
+                    $like: '%' + req.body + '%'
+                }
             }
         })
         .then(function(dbImage) {
@@ -103,32 +113,30 @@ router.get("/spaceportfolio/search", function(req, res) {
 });
 
 
-
-
-
 //post to database the pics you want to save
-router.post("/spaceportfolio/save/:name/:photoID", function(req, res) {
+router.post("/spaceportfolio/save", function(req, res) {
     //create a new User (name, id), store into Users table
 
     //in Portfolio, store userID and photoID
 
-    db.User.create({
-            name: req.params.user_name,
-            photoID: req.params.photoID
+    db.Portfolio.create({
+            title: req.body.title,
+            imageURL: req.body.imageURL,
+            description: req.body.description
         })
-        .then(function(dbUser) {
+        .then(function(dbPortfolio) {
             res.redirect("/spaceportfolio");
         });
 });
 
 //delete images you don't want
-router.delete("/spaceportfolio/delete/:photoID", function(req, res) {
-    db.User.destroy({
+router.delete("/spaceportfolio/delete", function(req, res) {
+    db.Portfolio.destroy({
             where: {
-                photoID: req.params.photoID
+                id: req.body.id
             }
         })
-        .then(function(dbUser) {
+        .then(function(dbPortfolio) {
             res.redirect("/spaceportfolio");
         });
 });
