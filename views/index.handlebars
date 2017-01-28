@@ -1,0 +1,68 @@
+  <div class="nav-wrapper grey">
+    <!--  <a href="#!" class="brand-logo center">SpacePort(folio)</a> -->
+     <form class="right">
+      <div class="input-field">
+        <input id="search" type="search" required>
+        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+        <i class="material-icons">close</i>
+      </div>
+    </form>
+
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+   <!--  <ul class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">Javascript</a></li>
+      <li><a href="mobile.html">Mobile</a></li>
+    </ul> -->
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">Javascript</a></li>
+      <li><a href="mobile.html">Mobile</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center white-text">SpacePort(folio)</h1>
+      <div class="row center">
+        <h5 class="header col s12 header center white-text">A responsive image search app using Materialize</h5>
+      </div>
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Search Now</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax"><img src="public/assets/img/bg.png" alt="Hero BG IMG"></div>
+</div>
+
+////////////////////////////////////////////////////
+
+{{!-- card lists --}}
+
+<div class="row">
+ <div class="col s12 m3">
+ {{#each cards}}
+   <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src={{this.url}}/>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{this.title}}Card Title<i class="material-icons right">more_vert</i></span>
+  
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{this.title}}Card Title<i class="material-icons right">close</i></span>
+      <p>{{this.explanation}}Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+   {{/each}}
+</div>
+</div>
