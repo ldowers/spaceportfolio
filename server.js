@@ -42,7 +42,7 @@ var client = new apod.Client({
 });
 
 // Syncing our sequelize models, loading our photos table, and then starting our express app
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: true, logging: console.log }).then(function() {
     var d = new Date();
     var i = 1;
 
