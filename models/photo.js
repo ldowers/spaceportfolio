@@ -24,6 +24,16 @@ module.exports = function(sequelize, DataTypes) {
         url: {
             type: DataTypes.STRING
         }
-    });
+    },{
+            
+            classMethods: {
+                associate: function(models) {
+                    Photo.belongsTo(models.User,
+                    {
+                        onDelete: "cascade"
+                    });
+                }
+            }
+        });
     return Photo;
 };
