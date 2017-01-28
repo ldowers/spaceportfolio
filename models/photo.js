@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
             
             classMethods: {
                 associate: function(models) {
-                    Photo.belongsTo(models.User,
+                    Photo.belongsToMany(models.User,
                     {
                         onDelete: "cascade"
                     });
