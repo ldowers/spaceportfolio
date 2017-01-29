@@ -11,7 +11,7 @@ nav {
 
 /*login form overlay*/
 #form-overlay {
-    background-color: white;
+    background-color: transparent;
     overflow: hidden!important;
     height: 0vh;
     width: 100vw;
@@ -143,4 +143,8 @@ nav i.search-icon {
 
 .switch label {
     margin-left: 15%;
+}
+
+#row-1 {
+    
 }
