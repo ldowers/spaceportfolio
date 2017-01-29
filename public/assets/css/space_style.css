@@ -1,30 +1,146 @@
-<!-- SpacePort(folio) Group Project - UCF Web Coding Bootcamp --> <!-- comment here -->
+/*<!-- SpacePort(folio) Group Project - UCF Web Coding Bootcamp --> <!-- comment here -->*/
 
 /*navbar*/
 
 nav {
-	background-color: transparent;
-	box-shadow: none;
+    background-color: transparent;
+    box-shadow: none;
 }
 
 /*navbar*/
 
 /*login form overlay*/
 #form-overlay {
-	background-color: white;
-	overflow: hidden!important;
-	height: 0vh;
-	width: 100vw;
-	position: fixed;
+    background-color: white;
+    overflow: hidden!important;
+    height: 0vh;
+    width: 100vw;
+    position: fixed;
     left: 0px;
     top: 0px;
     z-index: 999;
     transition-timing-function: ease-in-out;
-    transition-duration: .5s;
+    transition-duration: 1s;
+    opacity: 0.5;
 }
 
 .top-margin {
-	margin-top: 25%;
+    margin-top: 25%;
 }
 
 /*login form overlay*/
+
+/*Full screen landing page*/
+
+.parallax-container {
+    height: 100vh;
+}
+
+/*Full screen landing page*/
+
+
+.hero-h1 {
+    margin-top: 15%;
+    font-family: 'Noto Serif', serif;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.7s;
+}
+
+.hero-h2 {
+    font-family: 'Noto Serif', serif;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.7s;
+
+
+}
+
+nav ul a {
+    font-family: 'Noto Sans', sans-serif;
+
+}
+
+.input-field input[type=search], .material-icons{
+    cursor: pointer;
+}
+
+/*hides overflow on inital load*/
+
+body {
+    overflow: hidden;
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+/*hides overflow on inital load*/
+
+.form-h4 {
+  font-family: 'Noto Serif', serif;
+
+}
+
+/*form borders*/
+
+input[type=email], input[type=password] {
+    border-bottom: 1px solid white;
+}
+
+input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]) {
+    border-bottom: 1px solid white;
+    box-shadow: 0 2px 0 0 white;
+}
+
+input:focus {
+    color: white
+}
+
+.sans {
+   font-family: 'Noto Sans', sans-serif;
+
+}
+
+.serif {
+   font-family: 'Noto Serif', serif;
+}
+
+#form-close-btn {
+    position: absolute;
+    top: 15%;
+    right: 20%;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 1.2rem;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+}
+
+button a {
+    color: white;
+}
+
+ input[type=email].valid, input[type=password].valid {
+    color: white;
+}
+
+nav i.search-icon {
+    font-size: 30px;
+}
+
+.switch label input[type=checkbox]:checked+.lever, .switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #1976d2;
+}
+
+.card .card-content .card-title, .card .card-reveal .card-title {
+    font-family: 'Noto Serif', serif;
+}
+
+.card .card-content p , .card .card-reveal p, .input-field input[type=search] {
+     font-family: 'Noto Sans', sans-serif;
+}
+
+.card .card-content p {
+    float: left;
+}
+
+.switch label {
+    margin-left: 15%;
+}
