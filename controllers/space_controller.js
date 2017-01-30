@@ -26,7 +26,7 @@ router.get("/spaceportfolio/members", isAuthenticated, function(req, res) {
     $(document).ready(function() {
         // This file just does a GET request to figure out which user is logged in
         // and updates the HTML on the page
-        $.get("/api/user_data").then(function(data) {
+        $.get("/spaceportfolio/user_data").then(function(data) {
             $(".member-name").text(data.email);
         });
     });
@@ -58,7 +58,7 @@ router.post("/spaceportfolio/login", passport.authenticate("local"), function(re
 //creates User
 //if created successfully, then log user in
 //else send error
-router.post("/spaceportfolio/create", function(req, res) {
+router.post("/spaceportfolio/signUp", function(req, res) {
     console.log(req.body);
     db.Users.create({
         email: req.body.email,

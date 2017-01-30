@@ -7,8 +7,8 @@ $(document).ready(function() {
 
 
     // When the form is submitted, we validate there's an email and password entered
-    // loginForm.on("#form-submit-btn", function(event) {
-    $("#form-submit-btn").click(function(event) {
+    loginForm.on(".login", function(event) {
+
         event.preventDefault();
         var userData = {
             email: emailInput.val().trim(),
