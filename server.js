@@ -41,6 +41,9 @@ var client = new apod.Client({
     conceptTags: true
 });
 
+db.Photo.belongsToMany(db.User, { through: db.Portfolio });
+db.User.belongsToMany(db.Photo, { through: db.Portfolio });
+
 // Syncing our sequelize models, loading our photos table, and then starting our express app
 db.sequelize.sync({ force: true, logging: console.log }).then(function() {
     var d = new Date();
