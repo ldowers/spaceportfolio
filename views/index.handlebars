@@ -94,8 +94,8 @@
 <div class="row" id="row-1">
   <div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div>
 
+  {{#each photos}}
   <div class="col s12 m3">
-    {{#each photos}}
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src={{this.url}} >
@@ -121,9 +121,8 @@
         <p>{{this.explanation}}</p>
       </div>
     </div>
-    {{/each}}
   </div>
-
+  {{/each}}
 </div>
 </div>
 <!-- <div class="container">
@@ -246,43 +245,43 @@
 </script>
 
 <script type="text/javascript">
-          $(document).ready(function () {
-            $("#portfolio-button").click(function () {
-              $("#form-overlay").css({ "height": "100vh", "width": "100vw", "opacity": "1" });
-            });
-          });
+  $(document).ready(function () {
+    $("#portfolio-button").click(function () {
+      $("#form-overlay").css({ "height": "100vh", "width": "100vw", "opacity": "1" });
+    });
+  });
 
-
-</script>
-
-<script type="text/javascript">
-          $(document).ready(function () {
-            $("#portfolio-button").click(function () {
-              $(".hero-h1").css({ "opacity": "0" });
-            });
-          });
-
-
-</script>
 
 </script>
 
 <script type="text/javascript">
   $(document).ready(function () {
     $("#portfolio-button").click(function () {
-      $(".hero-h2").css({ "opacity": "0" });
+      $(".hero-h1").css({ "opacity": "0" });
     });
   });
 
 
 </script>
 
+</script>
+
 <script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-close-btn").click(function () {
-      $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0" });
-    });
-  });
+          $(document).ready(function () {
+            $("#portfolio-button").click(function () {
+              $(".hero-h2").css({ "opacity": "0" });
+            });
+          });
+
+
+</script>
+
+<script type="text/javascript">
+          $(document).ready(function () {
+            $("#form-close-btn").click(function () {
+              $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0" });
+            });
+          });
 
 
 </script>
