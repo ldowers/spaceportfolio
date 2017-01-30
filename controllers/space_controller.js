@@ -15,7 +15,14 @@ router.get("/", function(req, res) {
 });
 
 router.get("/spaceportfolio", function(req, res) {
-    res.sendFile(path.join(__dirname + "/../index.html"));
+    // res.sendFile(path.join(__dirname + "/../index.html"));
+    db.Photo.findAll({})
+        .then(function(data) {
+            var hbsObject = {
+                photos: data
+            };
+            res.render('index', hbsObject);
+        });
 });
 
 //if a user tries to go to the main page, check if they're already logged in

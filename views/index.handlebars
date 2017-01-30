@@ -1,70 +1,409 @@
-  <!-- SpacePort(folio) Group Project - UCF Web Coding Bootcamp --> <!-- comment here -->
+<!-- SpacePort(folio) Group Project - UCF Web Coding Bootcamp -->
 
-  <div class="nav-wrapper white lighten-5">
-    <!--  <a href="#!" class="brand-logo center">SpacePort(folio)</a> -->
-     <form class="right">
-      <div class="input-field">
-        <input id="search" type="search" required>
-        <label class="label-icon" for="search"><i class="material-icons search-icon">search</i></label>
-        <i class="material-icons">close</i>
-      </div>
-    </form>
+<div id="index-banner" class="parallax-container shadow">
+  <div class="container">
+    <nav>
+      <div class="nav-wrapper">
+        <!-- <a href="#!" class="brand-logo left">SpacePort(folio)</a> -->
+        <form class="left" id="navbar-search" onSubmit="return false;">
 
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-   <!--  <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    </ul> -->
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
-    </ul>
+<div class="input-field">
+  <input id="search" type="search" required>
+  <label class="label-icon" for="search"><i class="material-icons search-icon white-text">search</i></label>
+  <i class="material-icons">close</i>
+</div>
+</form>
 
-  </div>
+<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+<ul class="right hide-on-med-and-down">
+  <li><a href="#" id="portfolio-button">Login/Create Portfolio</a></li>
+  <!--   <li><a href="badges.html">Meet The Team</a></li> -->
+  <!-- <li><a href="collapsible.html">Javascript</a></li>
+      <li><a href="mobile.html">Mobile</a></li> -->
+</ul>
+<ul class="side-nav" id="mobile-demo">
+  <li><a href="#" id="portfolio-button">Login/Create Portfolio</a></li>
+  <!-- <li><a href="badges.html">Meet The Team</a></li> -->
+  <!--   <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li> -->
+</ul>
+
+</div>
+</div>
 </nav>
 
-<div id="index-banner" class="parallax-container">
+<!-- ///////////////// -->
+
+
+<div class="row" id="form-overlay">
+  <div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div>
+  <button class="btn waves-effect waves-light serif blue darken-4 center-align" id="form-close-btn"><a href="#">&times;</a></button>
+  <div class="col m3"></div>
+  <form class="col s12 m6">
+    <div class="row">
+      <h4 class="center-align top-margin white-text form-h4">Please login or create your Space Portfolio</h4><br><br>
+
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate">
+        <label for="email" class="white-text sans">Email</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="password" type="password" class="validate">
+        <label for="password" class="white-text sans">Password</label>
+        <button class="btn waves-effect waves-light serif blue darken-3" type="button" name="action" id="form-submit-btn">Submit
+          <!-- <i class="material-icons right">send</i>
+        -->        </button>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
+
+
+
+
+<!-- /////////////// -->
+
+
+
+
+
+<div class="section no-pad-bot">
+  <div class="container">
+    <br><br>
+    <h1 class="header center white-text hero-h1">SpacePort(folio)</h1>
+    <div class="row center">
+      <h5 class="header col s12 header center white-text hero-h2">A responsive image search app using Materialize</h5>
+    </div>
+    <div class="row center">
+      <!--       <a href="#" id="portfolio-button" class="btn-large waves-effect waves-light teal lighten-1">Create Portfolio</a>
+--></div>
+    <br><br>
+
+  </div>
+
+</div>
+<div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div>
+</div>
+
+
+<div class="row" id="row-1">
+  <div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div>
+
+  <div class="col s12 m3">
+    {{#each photos}}
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src={{this.url}} >
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">{{this.title}}<i class="material-icons right">more_vert</i></span>
+        <p>Add To Portfolio</p>
+        <p>
+          <!-- Switch -->
+          <div class="switch">
+            <label>
+            Off
+            <input type="checkbox">
+            <span class="lever"></span>
+            On
+          </label>
+          </div>
+        </p>
+      </div>
+
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">{{this.title}}<i class="material-icons right">close</i></span>
+        <p>{{this.explanation}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+</div>
+</div>
+<!-- <div class="container">
+  <div class="section"> -->
+
+<!--   Icon Section   -->
+<!--     <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+          <h5 class="center">Speeds up development</h5>
+
+          <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+          <h5 class="center">User Experience Focused</h5>
+
+          <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+          <h5 class="center">Easy to work with</h5>
+
+          <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div> -->
+
+
+<!-- <div class="parallax-container valign-wrapper">
   <div class="section no-pad-bot">
     <div class="container">
-      <br><br>
-      <h1 class="header center white-text">SpacePort(folio)</h1>
       <div class="row center">
-        <h5 class="header col s12 header center white-text">A responsive image search app using Materialize</h5>
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
       </div>
-      <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Search Now</a>
-      </div>
-      <br><br>
-
     </div>
   </div>
-  <div class="parallax"><img src="public/assets/img/bg.png" alt="Hero BG IMG"></div>
-</div>
+  <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
+</div> -->
 
-////////////////////////////////////////////////////
+<!-- <div class="container">
+  <div class="section">
 
-{{!-- card lists --}}
-
-<div class="row">
- <div class="col s12 m3">
- {{#each cards}}
-   <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src={{this.url}}/>
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-content-send brown-text"></i></h3>
+        <h4>Contact Us</h4>
+        <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+      </div>
     </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">{{this.title}}Card Title<i class="material-icons right">more_vert</i></span>
-  
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">{{this.title}}Card Title<i class="material-icons right">close</i></span>
-      <p>{{this.explanation}}Here is some more information about this product that is only revealed once clicked on.</p>
+
+  </div>
+</div> -->
+
+
+<!-- <div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+      </div>
     </div>
   </div>
-   {{/each}}
-</div>
-</div>
+  <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
+</div> -->
+
+<!-- <footer class="page-footer">
+  <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+              © 2014 Copyright Text
+              <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+<!--     </div>
+          </div>
+        </footer>  -->
+
+<!--  Scripts-->
+
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+
+<script type="text/javascript">
+  (function ($) {
+    $(function () {
+
+      $('.button-collapse').sideNav();
+      $('.parallax').parallax();
+
+    }); // end of document ready
+  })(jQuery); // end of jQuery name space
+
+</script>
+
+<script type="text/javascript">
+          $(document).ready(function () {
+            $("#portfolio-button").click(function () {
+              $("#form-overlay").css({ "height": "100vh", "width": "100vw", "opacity": "1" });
+            });
+          });
+
+
+</script>
+
+<script type="text/javascript">
+          $(document).ready(function () {
+            $("#portfolio-button").click(function () {
+              $(".hero-h1").css({ "opacity": "0" });
+            });
+          });
+
+
+</script>
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#portfolio-button").click(function () {
+      $(".hero-h2").css({ "opacity": "0" });
+    });
+  });
+
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#form-close-btn").click(function () {
+      $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0" });
+    });
+  });
+
+
+</script>
+
+<!-- <script type="text/javascript">
+  $(document).ready(function(){
+    $("#form-close-btn").click(function(){
+      $("#form-close-btn").css({"opacity": "0"});
+    });
+  });
+
+
+</script> -->
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#form-close-btn").click(function () {
+      $(".hero-h1").css({ "opacity": "1" });
+    });
+  });
+
+
+</script>
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#form-close-btn").click(function () {
+      $(".hero-h2").css({ "opacity": "1" });
+    });
+  });
+
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#form-submit-btn").click(function () {
+      $("body").css({ "overflow": "auto" });
+    });
+  });
+
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#form-submit-btn").click(function () {
+      $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0.5" });
+    });
+  });
+
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#form-submit-btn").click(function () {
+      $("body").css({ "overflow": "auto" });
+    });
+  });
+
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#form-submit-btn").click(function () {
+      $(".hero-h1").css({ "opacity": "1", "margin-top": "20%" });
+    });
+  });
+
+
+</script>
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#form-submit-btn").click(function () {
+      $(".hero-h2").css({ "opacity": "1", "margin-bottom": "5%" });
+    });
+  });
+
+
+</script>
+
+<script type="text/javascript">
+  $("#form-submit-btn").click(function () {
+    $('html, body').animate({
+      scrollTop: $("#row-1").offset().top
+    }, 2000);
+  });
+
+</script>
+
+<!-- ////////////////////////////////////////// -->
+
+
+<script type="text/javascript">
+  $("#navbar-search").submit(function () {
+    $('html, body').animate({
+      scrollTop: $("#row-1").offset().top
+    }, 1500);
+  });
+
+</script>
+
+<script type="text/javascript">
+
+  $("#navbar-search").submit(function () {
+    $("body").css({ "overflow": "auto" });
+  });
+
+</script>
+
+<script type="text/javascript">
+
+  $("#navbar-search").submit(function () {
+    this.reset();
+  });
+
+</script>
