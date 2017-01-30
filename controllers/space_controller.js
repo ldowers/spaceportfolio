@@ -58,20 +58,17 @@ router.post("/spaceportfolio/login", passport.authenticate("local"), function(re
 //creates User
 //if created successfully, then log user in
 //else send error
-router.post("/api/signup", function(req, res) {
+router.post("/spaceportfolio/create", function(req, res) {
     console.log(req.body);
     db.Users.create({
         email: req.body.email,
         password: req.body.password
     }).then(function() {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/spaceportfolio/login");
     }).catch(function(err) {
         res.json(err);
     });
 });
-
-
-//******************************************    
 
 // Route for logging user out
 router.get("spaceportfolio/logout", function(req, res) {
@@ -97,8 +94,11 @@ router.get("/spaceportfolio/user_data", function(req, res) {
 
 
 
+
+
 //search
 router.get("/spaceportfolio/search", function(req, res) {
+    console.log("search req.body is" + req.body);
     db.Photo.findAll({
             where: {
                 explanation: {
