@@ -13,6 +13,7 @@
   <i class="material-icons">close</i>
 </div>
 </form>
+<h2>Welcome <span class="member-name"></span></h2>
 
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
@@ -46,15 +47,21 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="email" type="email" class="validate">
+        <form class="login" id="form" action="/spaceportfolio/signup">
+        <div class="form-group">
+        <input id="email-input" type="email" class="validate">
         <label for="email" class="white-text sans">Email</label>
+        </div>
       </div>
       <div class="input-field col s12">
-        <input id="password" type="password" class="validate">
+        <div class="form-group">
+        <input id="password-input" type="password" class="validate">
         <label for="password" class="white-text sans">Password</label>
+        </div>
         <button class="btn waves-effect waves-light serif blue darken-3" type="button" name="action" id="form-submit-btn">Submit
           <!-- <i class="material-icons right">send</i>
         -->        </button>
+        </form>
       </div>
 
     </div>
@@ -230,7 +237,26 @@
 
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/signup.js"></script>
+<script type="text/javascript" src="js/members.js"></script>
 
+
+
+
+
+
+{{!--<script type="text/javascript">
+$("#form-submit-btn").click(function(){
+     //data_array = $("#form").serialize();
+     // alert(data_array);
+     var email = $("#email").val();
+     var address = $("#input2").val();
+     console.log(email);
+     console.log(address);
+
+});
+</script>--}}
 
 <script type="text/javascript">
   (function ($) {
@@ -286,7 +312,7 @@
 
 </script>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   $(document).ready(function(){
     $("#form-close-btn").click(function(){
       $("#form-close-btn").css({"opacity": "0"});
@@ -294,7 +320,7 @@
   });
 
 
-</script> -->
+</script>
 
 <script type="text/javascript">
   $(document).ready(function () {
@@ -332,6 +358,8 @@
   $(document).ready(function () {
     $("#form-submit-btn").click(function () {
       $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0.5" });
+      
+
     });
   });
 

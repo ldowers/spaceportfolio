@@ -10,10 +10,30 @@ var passport = require("../config/passport");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
+
 router.get("/", function(req, res) {
+    //if user is logged in, sends to /spaceportfolio/members
+    if (req.user) {
+        res.redirect("/spaceportfolio/members");
+    }
+    //else redirects to /spaceportfolio
     res.redirect("/spaceportfolio");
 });
 
+//uses isAuthenticated to check that a user is ACTUALLY logged in
+//then gets user info from db and updates HTML of the page
+router.get("/spaceportfolio/members", isAuthenticated, function(req, res) {
+    $(document).ready(function() {
+        // This file just does a GET request to figure out which user is logged in
+        // and updates the HTML on the page
+        $.get("/api/user_data").then(function(data) {
+            $(".member-name").text(data.email);
+        });
+    });
+})
+
+//the MAIN page
+//finds all the pictures in the Photo db and puts them in the html
 router.get("/spaceportfolio", function(req, res) {
     // res.sendFile(path.join(__dirname + "/../index.html"));
     db.Photo.findAll({})
@@ -25,58 +45,33 @@ router.get("/spaceportfolio", function(req, res) {
         });
 });
 
-//if a user tries to go to the main page, check if they're already logged in
-router.get("/spaceportfolio/create", function(req, res) {
-    // If the user is already logged in send them to the create a portfolio page
-    if (req.user) {
-        res.redirect("spaceportfolio/create");
-    }
-    //else send them to the signup page
-    res.sendFile(path.join(__dirname + "/../public/signup.html"));
-});
 
-//if a user tries to go to the login page, check if they're already logged in
-router.get("spaceportfolio/login", function(req, res) {
-    // If the user is already logged in send them to the create a portfolio page
-    if (req.user) {
-        res.redirect("/spaceportfolio/create");
-    }
-    //else send them to the login page
-    res.sendFile(path.join(__dirname + "/../public/login.html"));
-});
-
-// Here we've add our isAuthenticated middleware to this route.
-// If a user who is not logged in tries to access spaceportfolio/create they will be redirected to the signup page
-router.get("spaceportfolio/create", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/members.html"));
-});
-
-
-// If the user has valid login credentials, send them to the spaceportfolio/create page.
+// If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
 router.post("/spaceportfolio/login", passport.authenticate("local"), function(req, res) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.json("/spaceportfolio/create");
+    res.json("/spaceportfolio/members");
 });
 
-
-// Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-// how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-// otherwise send back an error
-router.post("/spaceportfolio/signup", function(req, res) {
+//creates User
+//if created successfully, then log user in
+//else send error
+router.post("/api/signup", function(req, res) {
     console.log(req.body);
-    db.User.create({
+    db.Users.create({
         email: req.body.email,
         password: req.body.password
     }).then(function() {
-        res.redirect(307, "/spaceportfolio/login");
+        res.redirect(307, "/api/login");
     }).catch(function(err) {
         res.json(err);
     });
 });
 
+
+//******************************************    
 
 // Route for logging user out
 router.get("spaceportfolio/logout", function(req, res) {
@@ -84,21 +79,21 @@ router.get("spaceportfolio/logout", function(req, res) {
     res.redirect("/");
 });
 
-//We might not need this:
-// // Route for getting some data about our user to be used client side
-// app.get("/spaceportfolio/user_data", function(req, res) {
-//     if (!req.user) {
-//         // The user is not logged in, send back an empty object
-//         res.json({});
-//     } else {
-//         // Otherwise send back the user's email and id
-//         // Sending back a password, even a hashed password, isn't a good idea
-//         res.json({
-//             email: req.user.email,
-//             id: req.user.id
-//         });
-//     }
-// });
+
+// Route for getting some data about our user to be used client side
+router.get("/spaceportfolio/user_data", function(req, res) {
+    if (!req.user) {
+        // The user is not logged in, send back an empty object
+        res.json({});
+    } else {
+        // Otherwise send back the user's email and id
+        // Sending back a password, even a hashed password, isn't a good idea
+        res.json({
+            email: req.user.email,
+            id: req.user.id
+        });
+    }
+});
 
 
 
