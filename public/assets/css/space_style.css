@@ -148,3 +148,8 @@ nav i.search-icon {
 #row-1 {
     
 }
+
+/*image sizing*/
+img{
+    height:256px;
+}
