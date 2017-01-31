@@ -23,13 +23,13 @@ router.get("/", function(req, res) {
 //uses isAuthenticated to check that a user is ACTUALLY logged in
 //then gets user info from db and updates HTML of the page
 router.get("/spaceportfolio/members", isAuthenticated, function(req, res) {
-    $(document).ready(function() {
-        // This file just does a GET request to figure out which user is logged in
-        // and updates the HTML on the page
-        $.get("/spaceportfolio/user_data").then(function(data) {
-            $(".member-name").text(data.email);
-        });
-    });
+    // $(document).ready(function() {
+    //     // This file just does a GET request to figure out which user is logged in
+    //     // and updates the HTML on the page
+    //     $.get("/spaceportfolio/user_data").then(function(data) {
+    //         $(".member-name").text(data.email);
+    //     });
+    // });
 })
 
 //the MAIN page
@@ -58,9 +58,9 @@ router.post("/spaceportfolio/login", passport.authenticate("local"), function(re
 //creates User
 //if created successfully, then log user in
 //else send error
-router.post("/spaceportfolio/signUp", function(req, res) {
+router.post("/spaceportfolio/signup", function(req, res) {
     console.log(req.body);
-    db.Users.create({
+    db.User.create({
         email: req.body.email,
         password: req.body.password
     }).then(function() {

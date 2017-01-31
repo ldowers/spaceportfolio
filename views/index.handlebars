@@ -13,7 +13,8 @@
   <i class="material-icons">close</i>
 </div>
 </form>
-<h2>Welcome <span class="member-name"></span></h2>
+{{!--
+<h2>Welcome <span class="member-name"></span></h2>--}}
 
 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
@@ -40,37 +41,32 @@
   <div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div>
   <button class="btn waves-effect waves-light serif blue darken-4 center-align" id="form-close-btn"><a href="#">&times;</a></button>
   <div class="col m3"></div>
-  <form class="col s12 m6">
+
+  <div class="col s12 m6">
     <div class="row">
-      <h4 class="center-align top-margin white-text form-h4">Please login or create your Space Portfolio</h4><br><br>
+      <h4 class="center-align top-margin white-text form-h4">Please login to create/view your Space Portfolio</h4><br><br>
 
     </div>
     <div class="row">
-      <div class="input-field col s12">
-        <form class="login" id="form" action="/spaceportfolio/signup">
-        <div class="form-group">
-        <input id="email-input" type="email" class="validate">
-        <label for="email" class="white-text sans">Email</label>
+      <form class="signup">
+        <div class="input-field col s12">
+          <label for="email-input" class="white-text sans">Email</label>
+          <input id="email-input" type="email" class="validate">
         </div>
-      </div>
-      <div class="input-field col s12">
-        <div class="form-group">
-        <input id="password-input" type="password" class="validate">
-        <label for="password" class="white-text sans">Password</label>
-        </div>
-        <button class="btn waves-effect waves-light serif blue darken-3 login" type="button" name="action" id="form-submit-btn">Login
+        <div class="input-field col s12">
+          <label for="password-input" class="white-text sans">Password</label>
+          <input id="password-input" type="password" class="validate"> {{!--
+          <button class="btn waves-effect waves-light serif blue darken-3 login" type="submit" name="action" id="form-submit-btn">Login
           <!-- <i class="material-icons right">send</i>
         -->        </button>
-         <button class="btn waves-effect waves-light serif blue darken-3 signup" type="button" name="action" id="form-submit-btn">Sign Up
+          <button class="btn waves-effect waves-light serif blue darken-3 signup" type="submit" name="action" id="form-submit-btn">Sign Up
           <!-- <i class="material-icons right">send</i>
-        -->        </button>
-        </form>
-      </div>
-
+        -->        </button>--}}
+          <button class="btn waves-effect waves-light serif blue darken-3" type="submit" name="action" id="form-submit-btn">Login or Sign Up</button>
+        </div>
+      </form>
     </div>
-
-  </form>
-
+  </div>
 </div>
 
 
@@ -108,7 +104,7 @@
   <div class="col s12 m3">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src={{this.url}} >
+        <img class="activator" src={{this.url}}>
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">{{this.title}}<i class="material-icons right">more_vert</i></span>
@@ -238,7 +234,7 @@
 <!--  Scripts-->
 
 
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="js/signup.js"></script>
@@ -249,16 +245,17 @@
 
 
 
-{{!--<script type="text/javascript">
-$("#form-submit-btn").click(function(){
-     //data_array = $("#form").serialize();
-     // alert(data_array);
-     var email = $("#email").val();
-     var address = $("#input2").val();
-     console.log(email);
-     console.log(address);
+{{!--
+<script type="text/javascript">
+  $("#form-submit-btn").click(function () {
+    //data_array = $("#form").serialize();
+    // alert(data_array);
+    var email = $("#email").val();
+    var address = $("#input2").val();
+    console.log(email);
+    console.log(address);
 
-});
+  });
 </script>--}}
 
 <script type="text/javascript">
@@ -296,29 +293,29 @@ $("#form-submit-btn").click(function(){
 </script>
 
 <script type="text/javascript">
-          $(document).ready(function () {
-            $("#portfolio-button").click(function () {
-              $(".hero-h2").css({ "opacity": "0" });
-            });
-          });
+  $(document).ready(function () {
+    $("#portfolio-button").click(function () {
+      $(".hero-h2").css({ "opacity": "0" });
+    });
+  });
 
 
 </script>
 
 <script type="text/javascript">
-          $(document).ready(function () {
-            $("#form-close-btn").click(function () {
-              $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0" });
-            });
-          });
+  $(document).ready(function () {
+    $("#form-close-btn").click(function () {
+      $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0" });
+    });
+  });
 
 
 </script>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    $("#form-close-btn").click(function(){
-      $("#form-close-btn").css({"opacity": "0"});
+  $(document).ready(function () {
+    $("#form-close-btn").click(function () {
+      $("#form-close-btn").css({ "opacity": "0" });
     });
   });
 
@@ -361,7 +358,7 @@ $("#form-submit-btn").click(function(){
   $(document).ready(function () {
     $("#form-submit-btn").click(function () {
       $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0.5" });
-      
+
 
     });
   });
@@ -370,21 +367,21 @@ $("#form-submit-btn").click(function(){
 </script>
 
 <script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-submit-btn").click(function () {
-      $("body").css({ "overflow": "auto" });
-    });
-  });
+          $(document).ready(function () {
+            $("#form-submit-btn").click(function () {
+              $("body").css({ "overflow": "auto" });
+            });
+          });
 
 
 </script>
 
 <script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-submit-btn").click(function () {
-      $(".hero-h1").css({ "opacity": "1", "margin-top": "20%" });
-    });
-  });
+          $(document).ready(function () {
+            $("#form-submit-btn").click(function () {
+              $(".hero-h1").css({ "opacity": "1", "margin-top": "20%" });
+            });
+          });
 
 
 </script>
