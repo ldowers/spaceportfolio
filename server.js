@@ -11,8 +11,9 @@ var app = express();
 // Requiring our models for syncing
 var db = require("./models");
 
-app.use(express.static(process.cwd() + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.static(process.cwd() + "/public"));
 app.use(methodOverride("_method"));
 
 // We need to use sessions to keep track of our user's login status
