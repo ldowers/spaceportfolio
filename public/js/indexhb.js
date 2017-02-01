@@ -1,6 +1,10 @@
 $(document).ready(function() {
     $("#portfolio-button").click(function() {
-        $("#form-overlay").css({ "height": "100vh", "width": "100vw", "opacity": "1" });
+        $("#form-overlay").css({
+            "height": "100vh",
+            "width": "100vw",
+            "opacity": "1"
+        });
     });
 });
 
@@ -8,7 +12,9 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $("#portfolio-button").click(function() {
-        $(".hero-h1").css({ "opacity": "0" });
+        $(".hero-h1").css({
+            "opacity": "0"
+        });
     });
 });
 
@@ -16,7 +22,9 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $("#portfolio-button").click(function() {
-        $(".hero-h2").css({ "opacity": "0" });
+        $(".hero-h2").css({
+            "opacity": "0"
+        });
     });
 });
 
@@ -24,60 +32,84 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $("#form-close-btn").click(function() {
-        $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0" });
+        $("#form-overlay").css({
+            "height": "0vh",
+            "width": "100vw",
+            "opacity": "0"
+        });
     });
 });
 
 
 $(document).ready(function() {
     $("#form-close-btn").click(function() {
-        $("#form-close-btn").css({ "opacity": "0" });
+        $("#form-close-btn").css({
+            "opacity": "0"
+        });
     });
 });
 
 
 $(document).ready(function() {
     $("#form-close-btn").click(function() {
-        $(".hero-h1").css({ "opacity": "1" });
+        $(".hero-h1").css({
+            "opacity": "1"
+        });
     });
 });
 
 
 $(document).ready(function() {
     $("#form-close-btn").click(function() {
-        $(".hero-h2").css({ "opacity": "1" });
+        $(".hero-h2").css({
+            "opacity": "1"
+        });
     });
 });
 
 $(document).ready(function() {
     $("#form-submit-btn").click(function() {
-        $("body").css({ "overflow": "auto" });
+        $("body").css({
+            "overflow": "auto"
+        });
     });
 });
 
 $(document).ready(function() {
     $("#form-submit-btn").click(function() {
-        $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0.5" });
+        $("#form-overlay").css({
+            "height": "0vh",
+            "width": "100vw",
+            "opacity": "0.5"
+        });
     });
 });
 
 $(document).ready(function() {
     $("#form-submit-btn").click(function() {
-        $("body").css({ "overflow": "auto" });
+        $("body").css({
+            "overflow": "auto"
+        });
     });
 });
 
 
 $(document).ready(function() {
     $("#form-submit-btn").click(function() {
-        $(".hero-h1").css({ "opacity": "1", "margin-top": "20%" });
+        $(".hero-h1").css({
+            "opacity": "1",
+            "margin-top": "20%"
+        });
     });
 });
 
 
 $(document).ready(function() {
     $("#form-submit-btn").click(function() {
-        $(".hero-h2").css({ "opacity": "1", "margin-bottom": "5%" });
+        $(".hero-h2").css({
+            "opacity": "1",
+            "margin-bottom": "5%"
+        });
     });
 });
 
@@ -96,7 +128,9 @@ $("#navbar-search").submit(function() {
 
 
 $("#navbar-search").submit(function() {
-    $("body").css({ "overflow": "auto" });
+    $("body").css({
+        "overflow": "auto"
+    });
 });
 
 
@@ -111,9 +145,9 @@ $(document).ready(function() {
             console.log("this.val is " + $(this).val());
 
             $.post("/spaceportfolio/search", {
-                // searchTerm: $(this).val()
+                searchTerm: $(this).val()
             }).then(function(data) {
-                window.location.replace(data);
+                // window.location.replace(data);
                 // If there's an error, log the error
             }).catch(function(err) {
                 console.log(err);

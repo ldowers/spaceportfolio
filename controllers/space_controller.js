@@ -94,18 +94,18 @@ router.get("/spaceportfolio/user_data", function(req, res) {
 
 
 //search
-router.get("/spaceportfolio/search", function(req, res) {
-    console.log("search req.body is" + req.body);
+router.post("/spaceportfolio/search", function(req, res) {
+    console.log("search req.body is" + req.body.searchTerm);
     db.Photo.findAll({
             where: {
                 explanation: {
-                    $like: '%' + req.body + '%'
+                    $like: '%' + req.body.searchTerm + '%'
                 }
             }
         })
         .then(function(dbImage) {
             var hbsObject = {
-                images: dbImage
+                photos: dbImage
             };
             res.render("index", hbsObject);
         });
