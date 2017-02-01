@@ -2,101 +2,91 @@
 
 <div id="index-banner" class="parallax-container shadow">
   <div class="container">
+
+    <!--Nav bar-->
     <nav>
       <div class="nav-wrapper">
         <form class="left" id="navbar-search" onSubmit="return false;">
+          <div class="input-field">
+            <input id="search" type="search" required>
+            <label class="label-icon" for="search"><i class="material-icons search-icon white-text">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
 
-<div class="input-field">
-  <input id="search" type="search" required>
-  <label class="label-icon" for="search"><i class="material-icons search-icon white-text">search</i></label>
-  <i class="material-icons">close</i>
-</div>
-</form>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#" id="portfolio-button">Login/Create Portfolio</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="#" id="portfolio-button">Login/Create Portfolio</a></li>
+        </ul>
 
+      </div>
+    </nav>
 
-<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-<ul class="right hide-on-med-and-down">
-  <li><a href="#" id="portfolio-button">Login/Create Portfolio</a></li>
+  </div>
 
-</ul>
-<ul class="side-nav" id="mobile-demo">
-  <li><a href="#" id="portfolio-button">Login/Create Portfolio</a></li>
+<!-- Overlay Login Form -->
 
-</ul>
+  <div class="row" id="form-overlay">
+    <div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div>
+    <button class="btn waves-effect waves-light serif blue darken-4 center-align" id="form-close-btn"><a href="#">&times;</a></button>
+    <div class="col m3"></div>
 
-</div>
-</div>
-</nav>
+    <div class="col s12 m6">
+      <div class="row">
+        <h4 class="center-align top-margin white-text form-h4">Please login to create/view your Space Portfolio</h4><br><br>
+      </div>
 
-<!-- ///////////////// -->
+      <div class="row">
+        <form class="signup">
+          <div class="input-field col s12">
+            <label for="email-input" class="white-text sans">Email</label>
+            <input id="email-input" type="email" class="validate">
+          </div>
+          <div class="input-field col s12">
+            <label for="password-input" class="white-text sans">Password</label>
+            <input id="password-input" type="password" class="validate">          
+            <button class="btn waves-effect waves-light serif blue darken-3 signup" type="submit" name="action" id="form-submit-btn">Sign Up
+            <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
+        <form class="login">
+            <button class="btn waves-effect waves-light serif blue darken-3 login" type="submit" name="action" id="form-submit-btn">Login
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
 
+<!-- Hero Image/Text -->
 
-<div class="row" id="form-overlay">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center white-text hero-h1">SpacePort(folio)</h1>
+      <div class="row center">
+        <h5 class="header col s12 header center white-text hero-h2">Find &amp; Save Your Favorite Space Images</h5>
+      </div>
+      <div class="row center">
+      </div>
+      <br><br>
+    </div>
+  </div>
   <div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div>
-  <button class="btn waves-effect waves-light serif blue darken-4 center-align" id="form-close-btn"><a href="#">&times;</a></button>
-  <div class="col m3"></div>
-
-  <div class="col s12 m6">
-    <div class="row">
-      <h4 class="center-align top-margin white-text form-h4">Please login to create/view your Space Portfolio</h4><br><br>
-    </div>
-
-    <div class="row">
-      <form class="signup">
-        <div class="input-field col s12">
-          <label for="email-input" class="white-text sans">Email</label>
-          <input id="email-input" type="email" class="validate">
-        </div>
-        <div class="input-field col s12">
-          <label for="password-input" class="white-text sans">Password</label>
-          <input id="password-input" type="password" class="validate">
-          
-          <button class="btn waves-effect waves-light serif blue darken-3 signup" type="submit" name="action" id="form-submit-btn">Sign Up
-          <i class="material-icons right">send</i>
-          </button>
-          </button>
-        </div>
-      </form>
-      <form class="login">
-      <button class="btn waves-effect waves-light serif blue darken-3 login" type="submit" name="action" id="form-submit-btn">Login
-          <i class="material-icons right">send</i>
-          </form>
-    </div>
-  </div>
-</div>
-
-
-
-
-<!-- /////////////// -->
-
-
-
-
-
-<div class="section no-pad-bot">
-  <div class="container">
-    <br><br>
-    <h1 class="header center white-text hero-h1">SpacePort(folio)</h1>
-    <div class="row center">
-      <h5 class="header col s12 header center white-text hero-h2">Find &amp; Save Your Favorite Space Images</h5>
-    </div>
-    <div class="row center">
-    </div>
-    <br><br>
-
-  </div>
 
 </div>
-<div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div>
-</div>
+
 
 
 <div class="row" id="row-1">
-  <div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div>
+<!--  <div class="parallax"><img src="/assets/img/bg40.png" alt="Hero BG IMG"></div> -->
 
   {{#each photos}}
-  <div class="col s12 m3">
+  <div class="col s12 m6 l3">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
         {{!--code to wrap each image in lightbox code--}}
@@ -130,7 +120,8 @@
   </div>
   {{/each}}
 </div>
-</div>
+
+
 
 
 <!--  Scripts-->

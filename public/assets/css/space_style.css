@@ -63,7 +63,7 @@ nav ul a {
     cursor: pointer;
 }
 
-/*hides overflow on inital load*/
+/*hides overflow on inital load
 
 body {
     overflow: hidden;
@@ -71,13 +71,13 @@ body {
     transition-duration: 1s;
 }
 
-/*hides overflow on inital load*/
+hides overflow on inital load
 
 .form-h4 {
   font-family: 'Noto Serif', serif;
 
 }
-
+*/
 /*form borders*/
 
 input[type=email], input[type=password] {
@@ -152,4 +152,14 @@ nav i.search-icon {
 /*image sizing*/
 img{
     height:256px;
+}
+
+form.login{
+    float:right;
+    margin-top:-40px;
+    margin-right:125px;
+}
+
+h4{
+    font-size: 28px;
 }
