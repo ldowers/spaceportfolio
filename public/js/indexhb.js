@@ -68,7 +68,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $("#signUp-btn, #login-btn").click(function() {
+    $("#form-submit-btn").click(function() {
         $("body").css({
             "overflow": "auto"
         });
@@ -76,7 +76,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $("#signUp-btn, #login-btn").click(function() {
+    $("#form-submit-btn").click(function() {
         $("#form-overlay").css({
             "height": "0vh",
             "width": "100vw",
@@ -86,7 +86,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $("#signUp-btn").click(function() {
+    $("#form-submit-btn").click(function() {
         $("body").css({
             "overflow": "auto"
         });
@@ -95,7 +95,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    $("#signUp-btn, #login-btn").click(function() {
+    $("#form-submit-btn").click(function() {
         $(".hero-h1").css({
             "opacity": "1",
             "margin-top": "20%"
@@ -105,7 +105,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    $("#signUp-btn, #login-btn").click(function() {
+    $("#form-submit-btn").click(function() {
         $(".hero-h2").css({
             "opacity": "1",
             "margin-bottom": "5%"
@@ -113,7 +113,7 @@ $(document).ready(function() {
     });
 });
 
-$("#signUp-btn, #login-btn").click(function() {
+$("#form-submit-btn").click(function() {
     $('html, body').animate({
         scrollTop: $("#row-1").offset().top
     }, 2000);
