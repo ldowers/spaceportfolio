@@ -93,6 +93,7 @@ router.get("/spaceportfolio/user_data", function(req, res) {
 });
 
 
+
 //search
 router.post("/spaceportfolio/search", function(req, res) {
     console.log("search req.body is" + req.body.searchTerm);
@@ -103,10 +104,13 @@ router.post("/spaceportfolio/search", function(req, res) {
                 }
             }
         })
-        .then(function(dbImage) {
+        .then(function(data) {
+            console.log("data is: " + data);
+            var typeOfData = typeof data;
             var hbsObject = {
-                photos: dbImage
+                photos: data
             };
+            console.log("hbsObject is: " + hbsObject);
             res.render("index", hbsObject);
         });
 });
