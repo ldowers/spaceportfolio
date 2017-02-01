@@ -39,8 +39,8 @@
   <div class="col s12 m6">
     <div class="row">
       <h4 class="center-align top-margin white-text form-h4">Please login to create/view your Space Portfolio</h4><br><br>
-
     </div>
+
     <div class="row">
       <form class="signup">
         <div class="input-field col s12">
@@ -49,14 +49,13 @@
         </div>
         <div class="input-field col s12">
           <label for="password-input" class="white-text sans">Password</label>
-          <input id="password-input" type="password" class="validate"> {{!--
+          <input id="password-input" type="password" class="validate"> 
           <button class="btn waves-effect waves-light serif blue darken-3 login" type="submit" name="action" id="form-submit-btn">Login
-          <!-- <i class="material-icons right">send</i>
-        -->        </button>
+          <i class="material-icons right">send</i>
+          </button>
           <button class="btn waves-effect waves-light serif blue darken-3 signup" type="submit" name="action" id="form-submit-btn">Sign Up
-          <!-- <i class="material-icons right">send</i>
-        -->        </button>--}}
-          <button class="btn waves-effect waves-light serif blue darken-3" type="submit" name="action" id="form-submit-btn">Login or Sign Up</button>
+          <i class="material-icons right">send</i>
+          </button>
         </div>
       </form>
     </div>
@@ -136,6 +135,7 @@
 <script type="text/javascript" src="js/signup.js"></script>
 <script type="text/javascript" src="js/members.js"></script>
 <script type="text/javascript" src="js/logout.js"></script>
+<script src="public/js/indexhb.js" type="text/javascript"></script>
 
 
 
@@ -164,168 +164,5 @@
 
     }); // end of document ready
   })(jQuery); // end of jQuery name space
-
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#portfolio-button").click(function () {
-      $("#form-overlay").css({ "height": "100vh", "width": "100vw", "opacity": "1" });
-    });
-  });
-
-
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#portfolio-button").click(function () {
-      $(".hero-h1").css({ "opacity": "0" });
-    });
-  });
-
-
-</script>
-
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#portfolio-button").click(function () {
-      $(".hero-h2").css({ "opacity": "0" });
-    });
-  });
-
-
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-close-btn").click(function () {
-      $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0" });
-    });
-  });
-
-
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-close-btn").click(function () {
-      $("#form-close-btn").css({ "opacity": "0" });
-    });
-  });
-
-
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-close-btn").click(function () {
-      $(".hero-h1").css({ "opacity": "1" });
-    });
-  });
-
-
-</script>
-
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-close-btn").click(function () {
-      $(".hero-h2").css({ "opacity": "1" });
-    });
-  });
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-submit-btn").click(function () {
-      $("body").css({ "overflow": "auto" });
-    });
-  });
-
-
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-submit-btn").click(function () {
-      $("#form-overlay").css({ "height": "0vh", "width": "100vw", "opacity": "0.5" });
-
-
-    });
-  });
-
-
-</script>
-
-<script type="text/javascript">
-          $(document).ready(function () {
-            $("#form-submit-btn").click(function () {
-              $("body").css({ "overflow": "auto" });
-            });
-          });
-
-
-</script>
-
-<script type="text/javascript">
-          $(document).ready(function () {
-            $("#form-submit-btn").click(function () {
-              $(".hero-h1").css({ "opacity": "1", "margin-top": "20%" });
-            });
-          });
-
-
-</script>
-
-</script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#form-submit-btn").click(function () {
-      $(".hero-h2").css({ "opacity": "1", "margin-bottom": "5%" });
-    });
-  });
-
-
-</script>
-
-<script type="text/javascript">
-  $("#form-submit-btn").click(function () {
-    $('html, body').animate({
-      scrollTop: $("#row-1").offset().top
-    }, 2000);
-  });
-
-</script>
-
-<!-- ////////////////////////////////////////// -->
-
-
-<script type="text/javascript">
-  $("#navbar-search").submit(function () {
-    $('html, body').animate({
-      scrollTop: $("#row-1").offset().top
-    }, 1500);
-  });
-
-</script>
-
-<script type="text/javascript">
-
-  $("#navbar-search").submit(function () {
-    $("body").css({ "overflow": "auto" });
-  });
-
-</script>
-
-<script type="text/javascript">
-
-  $("#navbar-search").submit(function () {
-    this.reset();
-  });
 
 </script>

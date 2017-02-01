@@ -1,0 +1,105 @@
+$(document).ready(function(){
+  $("#portfolio-button").click(function(){
+    $("#form-overlay").css({"height": "100vh", "width": "100vw", "opacity": "1"});
+  });
+});
+
+
+
+$(document).ready(function(){
+  $("#portfolio-button").click(function(){
+    $(".hero-h1").css({"opacity": "0"});
+  });
+});
+
+
+
+$(document).ready(function(){
+  $("#portfolio-button").click(function(){
+    $(".hero-h2").css({"opacity": "0"});
+  });
+});
+
+
+
+$(document).ready(function(){
+  $("#form-close-btn").click(function(){
+    $("#form-overlay").css({"height": "0vh", "width": "100vw", "opacity": "0"});
+  });
+});
+
+
+$(document).ready(function(){
+  $("#form-close-btn").click(function(){
+    $("#form-close-btn").css({"opacity": "0"});
+  });
+});
+
+
+$(document).ready(function(){
+  $("#form-close-btn").click(function(){
+    $(".hero-h1").css({"opacity": "1"});
+  });
+});
+
+
+$(document).ready(function(){
+  $("#form-close-btn").click(function(){
+    $(".hero-h2").css({"opacity": "1"});
+  });
+});
+
+$(document).ready(function(){
+  $("#form-submit-btn").click(function(){
+    $("body").css({"overflow": "auto"});
+  });
+});
+
+$(document).ready(function(){
+  $("#form-submit-btn").click(function(){
+    $("#form-overlay").css({"height": "0vh", "width": "100vw", "opacity": "0.5"});
+  });
+});
+
+$(document).ready(function(){
+  $("#form-submit-btn").click(function(){
+    $("body").css({"overflow": "auto"});
+  });
+});
+
+
+$(document).ready(function(){
+  $("#form-submit-btn").click(function(){
+    $(".hero-h1").css({"opacity": "1", "margin-top": "20%"});
+  });
+});
+
+
+$(document).ready(function(){
+  $("#form-submit-btn").click(function(){
+    $(".hero-h2").css({"opacity": "1", "margin-bottom": "5%"});
+  });
+});
+
+$("#form-submit-btn").click(function() {
+  $('html, body').animate({
+    scrollTop: $("#row-1").offset().top
+  }, 2000);
+});
+
+
+$("#navbar-search").submit(function(){
+ $('html, body').animate({
+  scrollTop: $("#row-1").offset().top
+}, 1500);
+});
+
+
+$("#navbar-search").submit(function(){
+ $("body").css({"overflow": "auto"});
+});
+
+
+$("#navbar-search").submit(function(){
+ this.reset();
+});
