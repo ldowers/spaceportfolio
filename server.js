@@ -46,38 +46,40 @@ db.Photo.belongsToMany(db.User, { through: db.Portfolio });
 db.User.belongsToMany(db.Photo, { through: db.Portfolio });
 
 // Syncing our sequelize models, loading our photos table, and then starting our express app
-db.sequelize.sync({ force: true, logging: console.log }).then(function() {
-    var d = new Date();
-    var i = 1;
+db.sequelize.sync({}).then(function() {
+    // var d = new Date();
+    // var i = 1;
 
-    var addRecord = function() {
-        client(d).then(function(body) {
-            db.Photo.create({
-                    copyright: body.copyright,
-                    date: body.date,
-                    explanation: body.explanation,
-                    hdurl: body.hdurl,
-                    media_type: body.media_type,
-                    service_version: body.service_version,
-                    title: body.title,
-                    url: body.url
-                })
-                .then(function() {
-                    console.log("Record # " + i + " added to database");
-                    i++;
-                    if (i <= 10) {
-                        d.setDate(d.getDate() - 1);
-                        addRecord();
-                    } else {
-                        console.log("Done");
+    // var addRecord = function() {
+    //     client(d).then(function(body) {
+    //         db.Photo.create({
+    //                 copyright: body.copyright,
+    //                 date: body.date,
+    //                 explanation: body.explanation,
+    //                 hdurl: body.hdurl,
+    //                 media_type: body.media_type,
+    //                 service_version: body.service_version,
+    //                 title: body.title,
+    //                 url: body.url
+    //             })
+    //             .then(function() {
+    //                 console.log("Record # " + i + " added to database");
+    //                 i++;
+    //                 if (i <= 10) {
+    //                     d.setDate(d.getDate() - 1);
+    //                     addRecord();
+    //                 } else {
+    //                     console.log("Done");
 
-                        app.listen(PORT, function() {
-                            console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-                        });
-                        return;
-                    }
-                });
-        });
-    };
-    addRecord();
+    app.listen(PORT, function() {
+        console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+    });
+    //                     return;
+    //                 }
+    //             });
+    //     }).catch(function(err) {
+    //         console.log(err);
+    //     });
+    // };
+    // addRecord();
 });
