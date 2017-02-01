@@ -1,5 +1,8 @@
 $(document).ready(function() {
-    logout.on("submit", function(event) {
+
+    var logoutButton = $("#logout");
+
+    logoutButton.on("submit", function(event) {
         logoutUser();
     });
 

@@ -93,9 +93,6 @@ router.get("/spaceportfolio/user_data", function(req, res) {
 });
 
 
-
-
-
 //search
 router.get("/spaceportfolio/search", function(req, res) {
     console.log("search req.body is" + req.body);
