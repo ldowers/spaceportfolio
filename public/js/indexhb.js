@@ -154,4 +154,24 @@ $(document).ready(function() {
             });
         }
     });
+
+    //this on click function triggers when the login button is clicked
+    //performs an empty search  
+    //does not display search items
+    $("form.login").click(function() {
+        $.post("/spaceportfolio/search", {
+            searchTerm: $(this).val()
+        }).then(function(data) {
+            // window.location.replace(data);
+            // If there's an error, log the error
+        }).catch(function(err) {
+            console.log(err);
+        });
+
+
+    });
+
+
+
+
 });
