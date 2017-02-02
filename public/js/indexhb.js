@@ -161,4 +161,11 @@ $(document).ready(function() {
         //     console.log(err);
         // });
     });
+
+    $(document).on("click", ".photoSlider", handlePhotoSlider);
+
+    function handlePhotoSlider() {
+        console.log("Photo ID: " + $(this).val());
+        console.log("Checked: " + $(this).prop('checked'));
+    }
 });
