@@ -99,33 +99,25 @@ router.get("/spaceportfolio/user_data", function(req, res) {
     }
 });
 
-// //post to database the pics you want to save
-// router.post("/spaceportfolio/save", function(req, res) {
-//     //create a new User (name, id), store into Users table
+//post to database the pics you want to save
+router.post("/spaceportfolio/save", function(req, res) {
+    //Store userID and photoID in Portfolio
 
-//     //in Portfolio, store userID and photoID
+    console.log("User ID: " + req.body.UserId);
+    console.log("Photo ID: " + req.body.PhotoId);
+});
 
-//     db.Portfolio.create({
-//             title: req.body.title,
-//             imageURL: req.body.imageURL,
-//             description: req.body.description
-//         })
-//         .then(function(dbPortfolio) {
-//             res.redirect("/spaceportfolio");
-//         });
-// });
-
-// //delete images you don't want
-// router.delete("/spaceportfolio/delete", function(req, res) {
-//     db.Portfolio.destroy({
-//             where: {
-//                 id: req.body.id
-//             }
-//         })
-//         .then(function(dbPortfolio) {
-//             res.redirect("/spaceportfolio");
-//         });
-// });
+//delete images you don't want
+router.delete("/spaceportfolio/delete", function(req, res) {
+    // db.Portfolio.destroy({
+    //         where: {
+    //             id: req.body.id
+    //         }
+    //     })
+    //     .then(function(dbPortfolio) {
+    //         res.redirect("/spaceportfolio");
+    //     });
+});
 
 // Export routes for server.js to use.
 module.exports = router;

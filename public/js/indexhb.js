@@ -167,5 +167,14 @@ $(document).ready(function() {
     function handlePhotoSlider() {
         console.log("Photo ID: " + $(this).val());
         console.log("Checked: " + $(this).prop('checked'));
+
+        $.post("/spaceportfolio/save", {
+            UserId: "1",
+            PhotoId: $(this).val()
+        }).then(function(data) {
+            console.log("Photo saved to portfolio");
+        }).catch(function(err) {
+            console.log(err);
+        });
     }
 });
