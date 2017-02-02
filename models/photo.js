@@ -24,6 +24,8 @@ module.exports = function(sequelize, DataTypes) {
         url: {
             type: DataTypes.STRING
         }
+    }, {
+        timestamps: false
     });
     return Photo;
 };
