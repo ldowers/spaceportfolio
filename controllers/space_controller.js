@@ -126,8 +126,9 @@ router.post("/spaceportfolio/save", function(req, res) {
             db.Portfolio.create({
                 UserId: user.id,
                 PhotoId: photo.id
-            }).then(function() {
+            }).then(function(dbPortfolio) {
                 console.log("Portfolio saved");
+                res.json(dbPortfolio);
             }).catch(function(err) {
                 res.json(err);
             });
@@ -136,15 +137,20 @@ router.post("/spaceportfolio/save", function(req, res) {
 });
 
 //delete images you don't want
-router.delete("/spaceportfolio/delete", function(req, res) {
-    // db.Portfolio.destroy({
-    //         where: {
-    //             id: req.body.id
-    //         }
-    //     })
-    //     .then(function(dbPortfolio) {
-    //         res.redirect("/spaceportfolio");
-    //     });
+router.post("/spaceportfolio/delete", function(req, res) {
+    db.Portfolio.destroy({
+            where: {
+                UserId: req.body.UserId,
+                PhotoId: req.body.PhotoId
+            }
+        })
+        .then(function() {
+            console.log("Portfolio deleted");
+            res.json({});
+            // res.redirect("/spaceportfolio");
+        }).catch(function(err) {
+            res.json(err);
+        });
 });
 
 // Export routes for server.js to use.
