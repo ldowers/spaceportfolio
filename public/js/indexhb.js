@@ -141,17 +141,10 @@ $("#navbar-search").submit(function() {
 $(document).ready(function() {
     $("#search").keydown(function(event) {
         if (event.which === 13) {
-            $(this).val();
-            console.log("this.val is " + $(this).val());
+            var searchTerm = $(this).val().trim();
+            searchTerm = searchTerm.replace(/\s+/g, "").toLowerCase();
 
-            $.post("/spaceportfolio/search", {
-                searchTerm: $(this).val()
-            }).then(function(data) {
-                // window.location.replace(data);
-                // If there's an error, log the error
-            }).catch(function(err) {
-                console.log(err);
-            });
+            window.location.replace("/spaceportfolio?searchTerm=" + searchTerm);
         }
     });
 
@@ -159,19 +152,13 @@ $(document).ready(function() {
     //performs an empty search  
     //does not display search items
     $("form.login").click(function() {
-        $.post("/spaceportfolio/search", {
-            searchTerm: $(this).val()
-        }).then(function(data) {
-            // window.location.replace(data);
-            // If there's an error, log the error
-        }).catch(function(err) {
-            console.log(err);
-        });
-
-
+        // $.post("/spaceportfolio/search", {
+        //     searchTerm: $(this).val()
+        // }).then(function(data) {
+        //     // window.location.replace(data);
+        //     // If there's an error, log the error
+        // }).catch(function(err) {
+        //     console.log(err);
+        // });
     });
-
-
-
-
 });

@@ -9,8 +9,6 @@ var passport = require("../config/passport");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-
-
 router.get("/", function(req, res) {
     //if user is logged in, sends to /spaceportfolio/members
     if (req.user) {
@@ -23,28 +21,37 @@ router.get("/", function(req, res) {
 //uses isAuthenticated to check that a user is ACTUALLY logged in
 //then gets user info from db and updates HTML of the page
 router.get("/spaceportfolio/members", isAuthenticated, function(req, res) {
-    // $(document).ready(function() {
-    //     // This file just does a GET request to figure out which user is logged in
-    //     // and updates the HTML on the page
-    //     $.get("/spaceportfolio/user_data").then(function(data) {
-    //         $(".member-name").text(data.email);
-    //     });
-    // });
-})
+    // Display user's Portfolio
+});
 
 //the MAIN page
 //finds all the pictures in the Photo db and puts them in the html
-router.get("/spaceportfolio", function(req, res) {
+router.get("/spaceportfolio/:searchTerm?", function(req, res) {
     // res.sendFile(path.join(__dirname + "/../index.html"));
-    db.Photo.findAll({})
-        .then(function(data) {
-            var hbsObject = {
-                photos: data
-            };
-            res.render('index', hbsObject);
-        });
+    if (req.query.searchTerm) {
+        db.Photo.findAll({
+                where: {
+                    explanation: {
+                        $like: '%' + req.query.searchTerm + '%'
+                    }
+                }
+            })
+            .then(function(data) {
+                var hbsObject = {
+                    photos: data
+                };
+                res.render("index", hbsObject);
+            });
+    } else {
+        db.Photo.findAll({})
+            .then(function(data) {
+                var hbsObject = {
+                    photos: data
+                };
+                res.render('index', hbsObject);
+            });
+    }
 });
-
 
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
@@ -92,57 +99,33 @@ router.get("/spaceportfolio/user_data", function(req, res) {
     }
 });
 
+// //post to database the pics you want to save
+// router.post("/spaceportfolio/save", function(req, res) {
+//     //create a new User (name, id), store into Users table
 
+//     //in Portfolio, store userID and photoID
 
-//search
-router.post("/spaceportfolio/search", function(req, res) {
-    console.log("search req.body is" + req.body.searchTerm);
-    db.Photo.findAll({
-            where: {
-                explanation: {
-                    $like: '%' + req.body.searchTerm + '%'
-                }
-            }
-        })
-        .then(function(data) {
-            console.log("data is: " + data);
-            var typeOfData = typeof data;
-            var hbsObject = {
-                photos: data
-            };
-            console.log("hbsObject is: " + hbsObject);
-            res.render("index", hbsObject);
-        });
-});
+//     db.Portfolio.create({
+//             title: req.body.title,
+//             imageURL: req.body.imageURL,
+//             description: req.body.description
+//         })
+//         .then(function(dbPortfolio) {
+//             res.redirect("/spaceportfolio");
+//         });
+// });
 
-
-//post to database the pics you want to save
-router.post("/spaceportfolio/save", function(req, res) {
-    //create a new User (name, id), store into Users table
-
-    //in Portfolio, store userID and photoID
-
-    db.Portfolio.create({
-            title: req.body.title,
-            imageURL: req.body.imageURL,
-            description: req.body.description
-        })
-        .then(function(dbPortfolio) {
-            res.redirect("/spaceportfolio");
-        });
-});
-
-//delete images you don't want
-router.delete("/spaceportfolio/delete", function(req, res) {
-    db.Portfolio.destroy({
-            where: {
-                id: req.body.id
-            }
-        })
-        .then(function(dbPortfolio) {
-            res.redirect("/spaceportfolio");
-        });
-});
+// //delete images you don't want
+// router.delete("/spaceportfolio/delete", function(req, res) {
+//     db.Portfolio.destroy({
+//             where: {
+//                 id: req.body.id
+//             }
+//         })
+//         .then(function(dbPortfolio) {
+//             res.redirect("/spaceportfolio");
+//         });
+// });
 
 // Export routes for server.js to use.
 module.exports = router;
