@@ -22,6 +22,7 @@ router.get("/", function(req, res) {
 //then gets user info from db and updates HTML of the page
 router.get("/spaceportfolio/members", isAuthenticated, function(req, res) {
     // Display user's Portfolio
+    res.redirect("/spaceportfolio");
 });
 
 //the MAIN page
@@ -105,6 +106,33 @@ router.post("/spaceportfolio/save", function(req, res) {
 
     console.log("User ID: " + req.body.UserId);
     console.log("Photo ID: " + req.body.PhotoId);
+    var user;
+    var photo;
+
+    db.User.findOne({
+        where: {
+            id: req.body.UserId
+        }
+    }).then(function(user) {
+        console.log("User found");
+
+        db.Photo.findOne({
+            where: {
+                id: req.body.PhotoId
+            }
+        }).then(function(photo) {
+            console.log("Photo found");
+
+            db.Portfolio.create({
+                UserId: user.id,
+                PhotoId: photo.id
+            }).then(function() {
+                console.log("Portfolio saved");
+            }).catch(function(err) {
+                res.json(err);
+            });
+        });
+    });
 });
 
 //delete images you don't want
