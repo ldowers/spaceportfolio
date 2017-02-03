@@ -42,8 +42,8 @@ router.post("/spaceportfolio/signup", function(req, res) {
 });
 
 // Route for logging user out
-router.get("spaceportfolio/logout", function(req, res) {
-    req.logout();
+router.get("/spaceportfolio/logout", function(req, res) {
+    req.logOut();
     res.redirect("/");
 });
 
