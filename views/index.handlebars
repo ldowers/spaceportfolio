@@ -6,27 +6,29 @@
     <!--Nav bar-->
     <nav>
       <div class="nav-wrapper">
-        
-        <a href="/spaceportfolio#row-1" id="view-all">View All</a>
+      
         <form class="left" id="navbar-search" onSubmit="return false;">
           <div class="input-field">
            <input id="search" type="search" required>
             <label class="label-icon" for="search"><i class="material-icons search-icon white-text">search</i></label>
             <i class="material-icons">close</i>
           </div>
-
         </form>
-
+        <ul class="hide-on-med-and-down">
+          <li><a href="/spaceportfolio#row-1" id="view-all">View All</a></li>
+          <li><a href="#" id="view-portfolio">View Portfolio</a></li>
+        </ul>
 
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#" id="portfolio-button">Login/Create Portfolio</a></li>
           <li><a href="#" id="logout-button">Logout</a></li>
         </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <li><a href="/spaceportfolio#row-1" id="view-all">View All</a></li>
-          <li><a href="#" id="portfolio-button">Login/Create Portfolio</a></li>
-          <li><a href="#" id="logout-button">Logout</a></li>
+      <ul class="side-nav" id="mobile-demo">
+          <li><a href="#" id="portfolio-button">Login/Create Portfolio</a></li><br>
+          <li><a href="#" id="logout-button">Logout</a></li><br>
+          <li><a href="/spaceportfolio#row-1" id="view-all">View All</a></li><br>
+          <li><a href="#" id="view-portfolio">View Portfolio</a></li>
         </ul>
 
       </div>

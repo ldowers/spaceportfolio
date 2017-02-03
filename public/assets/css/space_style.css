@@ -60,6 +60,15 @@ nav ul a {
     cursor: pointer;
 }
 
+nav .button-collapse{
+    float:right;
+}
+
+.side-nav li{
+    float:left;
+}
+
+
 /*hides overflow on inital load
 
 body {
