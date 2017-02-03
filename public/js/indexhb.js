@@ -148,20 +148,6 @@ $(document).ready(function() {
         }
     });
 
-    //this on click function triggers when the login button is clicked
-    //performs an empty search  
-    //does not display search items
-    $("form.login").click(function() {
-        // $.post("/spaceportfolio/search", {
-        //     searchTerm: $(this).val()
-        // }).then(function(data) {
-        //     // window.location.replace(data);
-        //     // If there's an error, log the error
-        // }).catch(function(err) {
-        //     console.log(err);
-        // });
-    });
-
     $(document).on("click", ".photoSlider", handlePhotoSlider);
 
     function handlePhotoSlider() {
@@ -174,7 +160,7 @@ $(document).ready(function() {
 
         $.get("/spaceportfolio/user_data").then(function(data) {
             userID = data.id;
-
+            console.log("User ID: " + userID);
             if (userID && photoID) {
                 if (checked) {
                     $.post("/spaceportfolio/save", {
@@ -203,9 +189,9 @@ $(document).ready(function() {
 
     //captures logout click and sends down logout route
     $(document).on("click", "#logout-button", handleLogout);
-    console.log("logout clicked");
 
     function handleLogout() {
+        console.log("logout clicked");
         $.get("/spaceportfolio/logout")
             .then(function(data) {
                 alert("You have been logged out.");
@@ -216,17 +202,22 @@ $(document).ready(function() {
 
     //captures view portfolio click
     $(document).on("click", "#view-portfolio", handleViewPortfolio);
-    console.log("view portfolio is clicked");
 
     function handleViewPortfolio() {
-        $.get("/spaceportfolio/viewportfolio")
-            .then(function(data) {}).catch(function(err) {
-                console.log(err)
-            });
+        console.log("view portfolio clicked");
+
+        var userID;
+
+        $.get("/spaceportfolio/user_data").then(function(data) {
+            userID = data.id;
+            console.log("User ID: " + userID);
+
+            if (userID) {
+                window.location.replace("/spaceportfolio?UserId=" + userID + "#row-1");
+            }
+
+        }).catch(function(err) {
+            console.log(err)
+        });
     }
-
-
-
-
-
-});
+}); //end of document ready function
