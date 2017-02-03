@@ -194,7 +194,7 @@ $(document).ready(function() {
         console.log("logout clicked");
         $.get("/spaceportfolio/logout")
             .then(function(data) {
-                alert("You have been logged out.");
+                Materialize.toast("You have been logged out.", 4000);
             }).catch(function(err) {
                 console.log(err);
             });
