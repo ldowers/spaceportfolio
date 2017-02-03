@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "pink1204!!",
+        "password": "",
         "database": "space_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
@@ -14,10 +14,10 @@
         "dialect": "mysql"
     },
     "production": {
-        "username": "root",
-        "password": null,
-        "database": "database_production",
-        "host": "127.0.0.1",
+        "username": "fqoydeh0vlmzw8fs",
+        "password": "m19wi24y09iwklru",
+        "database": "m19wi24y09iwklru",
+        "host": "ryvdxs57afyjk41z.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql"
     }
 }
