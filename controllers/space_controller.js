@@ -25,62 +25,6 @@ router.get("/spaceportfolio/members", isAuthenticated, function(req, res) {
     res.redirect("/spaceportfolio");
 });
 
-//the MAIN page
-//finds all the pictures in the Photo db and puts them in the html
-router.get("/spaceportfolio/:searchTerm?/:UserId?", function(req, res) {
-    // res.sendFile(path.join(__dirname + "/../index.html"));
-    if (req.query.UserId) {
-        db.Portfolio.findAll({
-            where: {
-                UserId: req.query.UserId
-            }
-        }).then(function(data) {
-            var photoArray = [];
-
-            for (var i = 0; i < data.length; i++) {
-                photoArray.push(data[i].PhotoId);
-            };
-
-            console.log(photoArray);
-
-            db.Photo.findAll({
-                where: {
-                    id: {
-                        $in: photoArray
-                    }
-                }
-            }).then(function(data) {
-                var hbsObject = {
-                    photos: data
-                };
-                res.render("index", hbsObject);
-            });
-        });
-    } else if (req.query.searchTerm) {
-        db.Photo.findAll({
-                where: {
-                    explanation: {
-                        $like: '%' + req.query.searchTerm + '%'
-                    }
-                }
-            })
-            .then(function(data) {
-                var hbsObject = {
-                    photos: data
-                };
-                res.render("index", hbsObject);
-            });
-    } else {
-        db.Photo.findAll({})
-            .then(function(data) {
-                var hbsObject = {
-                    photos: data
-                };
-                res.render('index', hbsObject);
-            });
-    }
-});
-
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
 router.post("/spaceportfolio/login", passport.authenticate("local"), function(req, res) {
@@ -178,6 +122,62 @@ router.post("/spaceportfolio/delete", function(req, res) {
         }).catch(function(err) {
             res.json(err);
         });
+});
+
+//the MAIN page
+//finds all the pictures in the Photo db and puts them in the html
+router.get("/spaceportfolio/:searchTerm?/:UserId?", function(req, res) {
+    // res.sendFile(path.join(__dirname + "/../index.html"));
+    if (req.query.UserId) {
+        db.Portfolio.findAll({
+            where: {
+                UserId: req.query.UserId
+            }
+        }).then(function(data) {
+            var photoArray = [];
+
+            for (var i = 0; i < data.length; i++) {
+                photoArray.push(data[i].PhotoId);
+            };
+
+            console.log(photoArray);
+
+            db.Photo.findAll({
+                where: {
+                    id: {
+                        $in: photoArray
+                    }
+                }
+            }).then(function(data) {
+                var hbsObject = {
+                    photos: data
+                };
+                res.render("index", hbsObject);
+            });
+        });
+    } else if (req.query.searchTerm) {
+        db.Photo.findAll({
+                where: {
+                    explanation: {
+                        $like: '%' + req.query.searchTerm + '%'
+                    }
+                }
+            })
+            .then(function(data) {
+                var hbsObject = {
+                    photos: data
+                };
+                res.render("index", hbsObject);
+            });
+    } else {
+        db.Photo.findAll({})
+            .then(function(data) {
+                var hbsObject = {
+                    photos: data
+                };
+                res.render('index', hbsObject);
+            });
+    }
 });
 
 // Export routes for server.js to use.

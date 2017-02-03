@@ -144,7 +144,7 @@ $(document).ready(function() {
             var searchTerm = $(this).val().trim();
             searchTerm = searchTerm.replace(/\s+/g, "").toLowerCase();
 
-            window.location.replace("/spaceportfolio?searchTerm=" + searchTerm);
+            window.location.replace("/spaceportfolio?searchTerm=" + searchTerm + "#row-1");
         }
     });
 
@@ -168,24 +168,36 @@ $(document).ready(function() {
         console.log("Photo ID: " + $(this).val());
         console.log("Checked: " + $(this).prop('checked'));
 
-        if ($(this).prop('checked')) {
-            $.post("/spaceportfolio/save", {
-                UserId: "1",
-                PhotoId: $(this).val()
-            }).then(function(data) {
-                console.log("Photo saved to portfolio");
-            }).catch(function(err) {
-                console.log(err);
-            });
-        } else {
-            $.post("/spaceportfolio/delete", {
-                UserId: "1",
-                PhotoId: $(this).val()
-            }).then(function(data) {
-                console.log("Photo deleted from portfolio");
-            }).catch(function(err) {
-                console.log(err);
-            });
-        }
+        var userID;
+        var checked = $(this).prop('checked');
+        var photoID = $(this).val();
+
+        $.get("/spaceportfolio/user_data").then(function(data) {
+            userID = data.id;
+
+            if (userID && photoID) {
+                if (checked) {
+                    $.post("/spaceportfolio/save", {
+                        UserId: userID,
+                        PhotoId: photoID
+                    }).then(function(data) {
+                        console.log("Photo saved to portfolio");
+                    }).catch(function(err) {
+                        console.log(err);
+                    });
+                } else {
+                    $.post("/spaceportfolio/delete", {
+                        UserId: userID,
+                        PhotoId: photoID
+                    }).then(function(data) {
+                        console.log("Photo deleted from portfolio");
+                    }).catch(function(err) {
+                        console.log(err);
+                    });
+                }
+            }
+        }).catch(function(err) {
+            console.log(err);
+        });
     }
 });
