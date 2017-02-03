@@ -203,6 +203,7 @@ $(document).ready(function() {
 
     //captures logout click and sends down logout route
     $(document).on("click", "#logout-button", handleLogout);
+    console.log("logout clicked");
 
     function handleLogout() {
         $.get("/spaceportfolio/logout")
@@ -212,6 +213,17 @@ $(document).ready(function() {
                 console.log(err);
             });
     };
+
+    //captures view portfolio click
+    $(document).on("click", "#view-portfolio", handleViewPortfolio);
+    console.log("view portfolio is clicked");
+
+    function handleViewPortfolio() {
+        $.get("/spaceportfolio/viewportfolio")
+            .then(function(data) {}).catch(function(err) {
+                console.log(err)
+            });
+    }
 
 
 
