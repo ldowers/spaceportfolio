@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     var logoutButton = $("#logout");
 
     logoutButton.on("submit", function(event) {

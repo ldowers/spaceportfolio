@@ -200,4 +200,21 @@ $(document).ready(function() {
             console.log(err);
         });
     }
+
+    //captures logout click and sends down logout route
+    $(document).on("click", "#logout-button", handleLogout);
+
+    function handleLogout() {
+        $.get("/spaceportfolio/logout")
+            .then(function(data) {
+                alert("You have been logged out.");
+            }).catch(function(err) {
+                console.log(err);
+            });
+    };
+
+
+
+
+
 });
