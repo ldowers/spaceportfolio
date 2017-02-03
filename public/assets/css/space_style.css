@@ -7,11 +7,11 @@ nav {
     box-shadow: none;
 }
 
-/*navbar*/
 
 /*login form overlay*/
 #form-overlay {
-    background-color: transparent;
+    background-color: #000;
+    opacity: 0.5 !important;
     overflow: hidden!important;
     height: 0vh;
     width: 100vw;
@@ -50,13 +50,10 @@ nav {
     font-family: 'Noto Serif', serif;
     transition-timing-function: ease-in-out;
     transition-duration: 0.7s;
-
-
 }
 
 nav ul a {
     font-family: 'Noto Sans', sans-serif;
-
 }
 
 .input-field input[type=search], .material-icons{
@@ -141,13 +138,16 @@ nav i.search-icon {
     float: left;
 }
 
+.card-content h4{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .switch label {
     margin-left: 15%;
 }
 
-#row-1 {
-    
-}
 
 /*image sizing*/
 img{
@@ -163,3 +163,9 @@ form.login{
 h4{
     font-size: 28px;
 }
+
+a#view-all{
+    float: left;
+    padding-right: 40px;
+}
+
